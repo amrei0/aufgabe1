@@ -1,10 +1,12 @@
 package com.psi.app;
 
 import com.psi.app.exceptions.IllegalYamlParameterException;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -20,6 +22,14 @@ class ParseYamlTest {
 
     private static final String PATH_TEST_FILES = "src\\test\\resources\\yaml_test_files\\parse_yaml\\";
     private static final YamlParser yamlParser = new YamlParser();
+
+    /**
+     * Adds directory "execution" to root if it doesn't already exist. Is used by tests and existing yaml test cases.
+     */
+    @BeforeAll
+    static void setUpDirectory(){
+        new File("execution").mkdir();
+    }
 
     /**
      * Tests loading a valid yaml file, which is expected to result in a test case including a trigger and a assertion.

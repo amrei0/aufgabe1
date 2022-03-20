@@ -23,6 +23,14 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class FileCreatedTriggerTest {
 
+    /**
+     * Adds directory "execution" to root if it doesn't already exist. Is used by tests and existing yaml test cases.
+     */
+    @BeforeAll
+    static void setUpDirectory(){
+        new File("execution").mkdir();
+    }
+
     private static final String PATH_TEST_FILES = "src\\test\\resources\\yaml_test_files\\trigger\\file_created_trigger\\";
     private static final YamlParser yamlParser = new YamlParser();
 

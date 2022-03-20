@@ -5,6 +5,7 @@ import com.psi.app.exceptions.IllegalYamlParameterException;
 import com.psi.app.exceptions.MissingYamlParameterException;
 import org.junit.jupiter.api.*;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -18,6 +19,14 @@ class FileCountAssertionTest {
 
     private static final String PATH_TEST_FILES = "src\\test\\resources\\yaml_test_files\\assertion\\file_count_assertion\\";
     private static final YamlParser yamlParser = new YamlParser();
+
+    /**
+     * Adds directory "execution" to root if it doesn't already exist. Is used by tests and existing yaml test cases.
+     */
+    @BeforeAll
+    static void setUpDirectory(){
+        new File("execution").mkdir();
+    }
 
     /**
      * Creates an assertion from a correct yaml file and asserts all variables were set correctly.

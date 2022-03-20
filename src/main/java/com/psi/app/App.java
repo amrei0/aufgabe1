@@ -14,12 +14,20 @@ public class App {
      */
     public static void main( String[] args ) throws IOException{
         if(args.length<1) throw new FileNotFoundException("No path to YAML file submitted");
+        setUpDirectory();
         YamlParser yamlParser = new YamlParser();
         TestCase testCase;
         testCase = yamlParser.getTestCaseFromYaml(args[0]);
         testCase.getTrigger().executeTrigger();
         System.out.println("Result assertion: "+testCase.getAssertion().checkAssertion());
         cleanUp();
+    }
+
+    /**
+     * Adds directory "execution" to root if it doesn't already exist. Is used by tests and existing yaml test cases.
+     */
+    private static void setUpDirectory(){
+        new File("execution").mkdir();
     }
 
     /**
