@@ -1,0 +1,9 @@
+When:
+  trigger_id: File Created
+  with_name: test.foo
+  in_directory: execution
+Then:
+  - File Count
+  - 2s
+  - 0
+  - execution

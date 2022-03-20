@@ -1,0 +1,8 @@
+When:
+  trigger_id: File Created
+  with_name: test.foo
+Then:
+  assertion_id: File Count
+  after: 2s
+  file_count: 0
+  in_directory: execution

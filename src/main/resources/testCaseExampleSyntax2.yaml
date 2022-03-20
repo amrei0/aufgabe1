@@ -1,0 +1,7 @@
+When: File Created
+  with_name: test.foo
+  in_directory: execution
+Then: File Count
+  after: 1 m 2s
+  file_count: 0
+  in_directory: execution

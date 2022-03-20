@@ -1,0 +1,9 @@
+When:
+  - File Created
+  - with_name
+  - in_directory
+Then:
+  assertion_id: File Count
+  after: 2s
+  file_count: 0
+  in_directory: execution
